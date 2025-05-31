@@ -3,6 +3,7 @@ import registerAnimation from '../assets/lottie/register.json'
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
@@ -15,10 +16,10 @@ const Register = () => {
         // create user
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
+                toast.success('Register successfull');
             })
             .catch(error => {
-                console.log(error.message);
+                toast.error(error.message);
             })
 
     }
