@@ -19,8 +19,8 @@ const Navbar = () => {
             })
     }
     return (
-        <div>
-            <div className="navbar bg-base-100">
+        <div className=" bg-gray-400">
+            <div className="navbar max-w-6xl mx-auto px-5 lg:px-0">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,7 +43,10 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <Link to="/" className="font-semibold cursor-pointer text-xl">Job Portal</Link>
+                    <Link to="/" className="flex gap-3 justify-center items-center cursor-pointer">
+                        <img width="50" height="50" src="https://img.icons8.com/arcade/64/find-matching-job.png" alt="find-matching-job" />
+                        <h2 className="text-xl font-semibold">Job Portal</h2>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
