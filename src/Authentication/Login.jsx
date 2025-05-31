@@ -1,19 +1,19 @@
 import Lottie from "lottie-react";
-import registerAnimation from '../assets/lottie/register.json'
+import loginAnimation from '../assets/lottie/login.json'
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const Register = () => {
-    const { createUser } = useContext(AuthContext);
+const Login = () => {
+    const { singInUser } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
-    const handleRegister = e => {
+    const handleLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        // create user
-        createUser(email, password)
+        // sign user
+        singInUser(email, password)
             .then(result => {
                 console.log(result.user);
             })
@@ -24,13 +24,13 @@ const Register = () => {
     }
     return (
         <div className="hero bg-base-200 min-h-[80vh] rounded-md">
-            <div className="hero-content flex-col gap-10 lg:gap-32 lg:flex-row-reverse">
+            <div className="hero-content flex-col gap-10 lg:gap-24 lg:flex-row-reverse">
                 <div className="text-center lg:text-left w-72 lg:w-full">
-                    <Lottie animationData={registerAnimation}></Lottie>
+                    <Lottie animationData={loginAnimation}></Lottie>
                 </div>
                 <div className="card bg-base-100 max-w-xl w-full lg:max-w-sm shrink-0 shadow-xl">
                     <h1 className="text-2xl font-bold text-center pt-5">Register now!</h1>
-                    <form onSubmit={handleRegister} className="card-body">
+                    <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -58,4 +58,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;
