@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
+import SocialLogin from "../Pages/Shared/SocialLogin";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
@@ -53,6 +54,7 @@ const Register = () => {
                             <button className="btn btn-primary">Register</button>
                         </div>
                     </form>
+                    <SocialLogin />
                 </div>
             </div>
         </div>
