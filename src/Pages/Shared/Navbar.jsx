@@ -11,6 +11,7 @@ const Navbar = () => {
         {
             user && <>
                 <li><NavLink to="/about">About</NavLink></li>
+                <li><NavLink to="/my-applications">Jobs Applications</NavLink></li>
             </>
         }
     </>
