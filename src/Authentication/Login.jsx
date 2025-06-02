@@ -5,6 +5,7 @@ import { AuthContext } from "../context/AuthContext/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import SocialLogin from "../Pages/Shared/SocialLogin";
 
 const Login = () => {
     const { singInUser } = useContext(AuthContext);
@@ -14,7 +15,6 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-
         // sign user
         singInUser(email, password)
             .then(result => {
@@ -29,7 +29,7 @@ const Login = () => {
     return (
         <div className="hero bg-base-200 min-h-[80vh] rounded-md">
             <div className="hero-content flex-col gap-10 lg:gap-32 lg:flex-row-reverse">
-                <div className="text-center lg:text-left w-72 lg:w-full">
+                <div className="text-center lg:text-left w-72 lg:w-[520px]">
                     <Lottie animationData={loginAnimation}></Lottie>
                 </div>
                 <div className="card bg-base-100 max-w-xl w-full lg:max-w-sm shrink-0 shadow-xl">
@@ -56,6 +56,9 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
+                    <div>
+                        <SocialLogin />
+                    </div>
                 </div>
             </div>
         </div>

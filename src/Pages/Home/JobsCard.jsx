@@ -3,6 +3,7 @@ import { IoMdTime } from "react-icons/io";
 import { PiBag } from "react-icons/pi";
 import HrDetails from "./HrDetails";
 import { FaCheckCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const JobsCard = ({ job }) => {
     const { _id, title, location, jobType, category, applicationDeadline, salaryRange, description, company, requirements, status, hr_email, hr_name, company_logo } = job || [];
@@ -60,7 +61,9 @@ const JobsCard = ({ job }) => {
                     </div>
                 </div>
                 <div className="flex justify-between items-center gap-5">
-                    <button className="btn w-2/3 bg-indigo-500 hover:bg-indigo-600 text-white">Apply Now</button>
+                    <Link to={`jobs/${_id}`} className="w-2/3">
+                        <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white">Apply Details</button>
+                    </Link>
 
                     <button onClick={() => document.getElementById('my_modal_1').showModal()} className="btn bg-indigo-500 hover:bg-indigo-600 text-white w-1/4">HR Info</button>
                     <HrDetails hr_email={hr_email} hr_name={hr_name} />
