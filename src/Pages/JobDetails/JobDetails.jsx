@@ -7,7 +7,7 @@ const JobDetails = () => {
     return (
         <div>
             <div className="bg-base-100 shadow-md border rounded-lg p-4 max-w-4xl min-h-60 mx-auto">
-                <div className="flex items-start justify-between">
+                <div className="flex flex-col lg:flex-row items-start justify-between">
                     <div className="flex gap-4">
                         <img
                             src={company_logo}
@@ -22,7 +22,7 @@ const JobDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="">
+                    <div className="mt-3 lg:mt-0">
                         {
                             requirements.map((type, idx) => <div key={idx} className="btn btn-sm font-normal hover:text-indigo-500 mr-3 mb-3">{type}</div>)
                         }
@@ -43,7 +43,7 @@ const JobDetails = () => {
                 <p className="mt-3 text-gray-600 text-sm">
                     {description}
                 </p>
-                <div className="mt-4 flex items-center justify-between">
+                <div className="mt-4 flex-col lg:flex-row flex items-center justify-between">
                     <div>
                         {
                             Object.entries(salaryRange).map(([key, value], idx) => (

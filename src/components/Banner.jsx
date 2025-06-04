@@ -7,11 +7,11 @@ const Banner = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <motion.img animate={{ y: [0, 50, 0] }} transition={{ duration: 5, delay: 3, ease: easeOut, repeat: Infinity }}
                     src={team1}
-                    className="w-72 rounded-[40px] border-l-4px boder-b-4px border-indigo-500 -mt-44" />
+                    className="w-44 lg:w-72 rounded-[40px] border-l-4px boder-b-4px border-indigo-500 lg:-mt-44" />
 
-                <motion.img animate={{ x: [100, 50, 100] }} transition={{ duration: 5, delay: 3, ease: easeOut, repeat: Infinity }}
+                <motion.img animate={{ x: [50, 100, 50] }} transition={{ duration: 5, delay: 3, ease: easeOut, repeat: Infinity }}
                     src={team2}
-                    className="w-72 rounded-[40px] border-l-4px boder-b-4px border-indigo-500" />
+                    className="w-44 lg:w-72 rounded-[40px] border-l-4px boder-b-4px border-indigo-500" />
                 <div>
                     <motion.h1 animate={{ x: [0, 50, 0] }}
                         transition={{ duration: 2, delay: 2, ease: easeInOut, repeat: Infinity }} className="text-2xl lg:text-4xl font-bold">Job

@@ -30,13 +30,15 @@ const MyApplications = () => {
                 //     text: "Your file has been deleted.",
                 //     icon: "success"
                 // });
-                fetch(`http://localhost:5000/job-application/${jobs?._id}`, {
+                fetch(`http://localhost:5000/job-application/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
                     })
+                const remainingApplication = jobs.filter((job) => job?._id !== _id);
+                setJobs(remainingApplication);
             }
         });
     }
@@ -54,7 +56,7 @@ const MyApplications = () => {
                         <th>Name</th>
                         <th>Job</th>
                         <th>Favorite Color</th>
-                        <th></th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
