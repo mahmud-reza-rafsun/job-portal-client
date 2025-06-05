@@ -1,9 +1,66 @@
+
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
+
 const AddJob = () => {
+    const { user } = useAuth();
     const handleAddJob = (e) => {
         e.preventDefault();
         const jobForm = new FormData(e.target);
         const initialData = Object.fromEntries(jobForm.entries());
-        console.log(initialData);
+        const { max, min, currency, ...newJob } = initialData;
+        newJob.salaryRange = { max, min, currency };
+        newJob.requirements = newJob.requirements.split('\n');
+        newJob.responsibilites = newJob.responsibilites.split('\n');
+        // console.log(newJob);
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, Add Job!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch('http://localhost:5000/jobs', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newJob),
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        swalWithBootstrapButtons.fire({
+                            title: "Added!",
+                            text: "Your file has been added.",
+                            icon: "success"
+                        });
+                        console.log(data);
+                    })
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Cancelled",
+                    text: "Your imaginary file is safe :)",
+                    icon: "error"
+                });
+            }
+        });
+
+
     }
     return (
         <div className="hero bg-base-200 min-h-[80vh] rounded-md">
@@ -46,7 +103,7 @@ const AddJob = () => {
                                     <span className="label-text">Job Category</span>
                                 </label>
                                 <select name="jobCategory" className="select select-bordered w-full max-w-xs">
-                                    <option disabled selected>What type of Jobs</option>
+                                    <option disabled>What type of Jobs</option>
                                     <option>Software Engineer</option>
                                     <option>Marketing Specialist</option>
                                     <option>Data Scientist</option>
@@ -59,7 +116,7 @@ const AddJob = () => {
                                     <span className="label-text">Job Type</span>
                                 </label>
                                 <select name="jobType" className="select select-bordered w-full max-w-xs">
-                                    <option disabled selected>What type of Jobs</option>
+                                    <option disabled>What type of Jobs</option>
                                     <option>Full-time</option>
                                     <option>Intern</option>
                                     <option>Part-time</option>
@@ -87,7 +144,7 @@ const AddJob = () => {
                                     <span className="label-text">Currency</span>
                                 </label>
                                 <select name="currency" className="select select-bordered w-full max-w-xs">
-                                    <option disabled selected>Select Currency</option>
+                                    <option disabled >Select Currency</option>
                                     <option>BDT</option>
                                     <option>USD</option>
                                     <option>EURO</option>
@@ -121,14 +178,14 @@ const AddJob = () => {
                                 <label className="label">
                                     <span className="label-text">HR Name</span>
                                 </label>
-                                <input type="text" name="hrName" placeholder="hr name" className="input input-bordered" required />
+                                <input type="text" name="hr_name" placeholder="hr name" className="input input-bordered" required />
                             </div>
                             {/* hr email */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">HR Email</span>
                                 </label>
-                                <input type="email" name="hrEmail" placeholder="hr email" className="input input-bordered" required />
+                                <input defaultValue={user?.email} type="email" name="hr_email" placeholder="hr email" className="input input-bordered" required />
                             </div>
                         </div>
                         <div className="form-control mt-6">

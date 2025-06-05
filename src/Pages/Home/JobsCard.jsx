@@ -45,7 +45,7 @@ const JobsCard = ({ job }) => {
                 <div>
                     <h2 className="font-semibold text-base lg:text-lg mb-3">Skills</h2>
                     {
-                        requirements.map((type, idx) => <div key={idx} className="btn btn-sm font-normal hover:text-indigo-500 mr-3 mb-3">{type}</div>)
+                        requirements?.map((type, idx) => <div key={idx} className="btn btn-sm font-normal hover:text-indigo-500 mr-3 mb-3">{type}</div>)
                     }
                 </div>
                 <div className="flex items-center justify-between">
