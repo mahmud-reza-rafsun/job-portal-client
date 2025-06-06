@@ -6,12 +6,12 @@ import Swal from "sweetalert2";
 const MyApplications = () => {
     const { user } = useAuth();
     const [jobs, setJobs] = useState([]);
+    console.log(jobs);
     useEffect(() => {
         fetch(`http://localhost:5000/job-application?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setJobs(data);
-                console.log(data);
             })
     }, [user?.email])
     const handleDeleteApplication = (_id) => {
@@ -25,16 +25,16 @@ const MyApplications = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                // Swal.fire({
-                //     title: "Deleted!",
-                //     text: "Your file has been deleted.",
-                //     icon: "success"
-                // });
                 fetch(`http://localhost:5000/job-application/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
                         console.log(data);
                     })
                 const remainingApplication = jobs.filter((job) => job?._id !== _id);
@@ -61,7 +61,7 @@ const MyApplications = () => {
                 </thead>
                 <tbody>
                     {
-                        jobs.map((job) => <tr key={job?._id}>
+                        jobs?.map((job) => <tr key={job?._id}>
                             <th>
                                 <label>
                                     <input type="checkbox" className="checkbox" />

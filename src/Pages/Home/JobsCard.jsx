@@ -52,11 +52,13 @@ const JobsCard = ({ job }) => {
                     <div>
                         <h2 className="font-semibold text-base lg:text-lg mb-3">Salary Structure</h2>
                         {
-                            Object.entries(salaryRange).map(([key, value], idx) => (
-                                <div key={idx} className="btn btn-sm mr-3 mb-3 font-normal hover:text-indigo-500">
-                                    {key.charAt(0).toUpperCase() + key.slice(1)}: {key === 'currency' ? value.toUpperCase() : value}
-                                </div>
-                            ))
+                            salaryRange && typeof salaryRange === 'object' && (
+                                Object.entries(salaryRange).map(([key, value], idx) => (
+                                    <div key={idx} className="btn btn-sm mr-3 mb-3 font-normal hover:text-indigo-500">
+                                        {key.charAt(0).toUpperCase() + key.slice(1)}: {key === 'currency' ? value.toUpperCase() : value}
+                                    </div>
+                                ))
+                            )
                         }
                     </div>
                 </div>
