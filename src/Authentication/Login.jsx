@@ -4,13 +4,14 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import SocialLogin from "../Pages/Shared/SocialLogin";
+import axios from "axios";
 
 const Login = () => {
     const { singInUser } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const handleLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -19,7 +20,13 @@ const Login = () => {
         singInUser(email, password)
             .then(result => {
                 toast.success('Login successfull');
-                navigate('/')
+                console.log(result.user.email);
+                const user = { email: email };
+                axios.post('http://localhost:5000/jwt', user)
+                    .then(res => {
+                        console.log(res.data);
+                    })
+                // navigate('/')
             })
             .catch(error => {
                 toast.error(error.message);

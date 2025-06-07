@@ -5,10 +5,12 @@ import { AuthContext } from "../context/AuthContext/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
 import SocialLogin from "../Pages/Shared/SocialLogin";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
     const handleRegister = e => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -18,11 +20,11 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 toast.success('Register successfull');
+                navigate('/');
             })
             .catch(error => {
                 toast.error(error.message);
             })
-
     }
     return (
         <div className="hero bg-base-200 min-h-[80vh] rounded-md">

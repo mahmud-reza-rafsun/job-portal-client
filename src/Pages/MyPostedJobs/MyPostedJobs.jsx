@@ -23,6 +23,7 @@ const MyPostedJobs = () => {
                             <th>Tite</th>
                             <th>Category</th>
                             <th>Company</th>
+                            <th>Application Count</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -33,6 +34,7 @@ const MyPostedJobs = () => {
                                 <td>{job?.title}</td>
                                 <td>{job?.category}</td>
                                 <td>{job?.company}</td>
+                                <td>{job?.applicationCount}</td>
                                 <td><button className="btn btn-sm btn-error text-white">X</button></td>
                             </tr>)
                         }
