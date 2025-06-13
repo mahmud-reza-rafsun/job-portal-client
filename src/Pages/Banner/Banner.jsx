@@ -12,18 +12,18 @@ const Banner = () => {
                         animate={{ y: [0, 50, 0] }}
                         transition={{ duration: 5, repeat: Infinity }}
                         src={team2}
-                        className="max-w-sm w-80 rounded-lg shadow-2xl shadow-[#7178CF]"
+                        className="max-w-sm w-60 lg:w-80 rounded-lg shadow-2xl shadow-[#7178CF]"
                     />
                     <motion.img
                         src={team1}
                         animate={{ x: [0, 50, 0] }}
                         transition={{ duration: 5, repeat: Infinity }}
-                        className="max-w-sm w-80 rounded-lg shadow-2xl shadow-[#7178CF] relative lg:left-32"
+                        className="max-w-sm w-60 lg:w-80 rounded-lg shadow-2xl shadow-[#7178CF] relative lg:left-32"
                     />
                 </div>
                 <div className="flex-1/2 mt-8 lg:mt-0">
                     <motion.h1
-                        animate={{ x: [0, 50, 0] }}
+                        animate={{ x: [0, 30, 0] }}
                         transition={{ duration: 5, repeat: Infinity }}
                         className="text-3xl lg:text-4xl font-bold">Job Portal News</motion.h1>
                     <p className="py-6">

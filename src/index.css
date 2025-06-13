@@ -5,3 +5,7 @@
     background-color: #615FFF;
     color: #fff;
 }
+
+.btn {
+    box-shadow: none;
+}
