@@ -26,7 +26,7 @@ const Navbar = () => {
     return (
         <div className="shadow-sm sticky top-0 z-50 backdrop-blur-md px-3 lg:px-0">
             <div className="navbar max-w-6xl mx-auto">
-                <div className="navbar-start">
+                <div className="navbar-start flex-1/4">
                     <Link className="font-bold cursor-pointer text-xl lg:text-2xl">Job Portal</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -34,8 +34,8 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end gap-4">
-                    <div className="flex items-center gap-4">
+                <div className="navbar-end flex-3/5 gap-2 lg:gap-4">
+                    <div className="flex items-center gap-2 lg:gap-4">
                         {
                             users ?
                                 <>

@@ -41,10 +41,10 @@ const SignIn = () => {
     return (
         <div className="hero bg-base-200 min-h-[80vh]">
             <div className="hero-content flex-col gap-12 lg:gap-52 lg:flex-row-reverse">
-                <div className="text-center lg:text-left w-[380px] lg:w-[525px]">
+                <div className="text-center lg:text-left w-[300px] lg:w-[525px]">
                     <Lottie animationData={SignInAnimation} />
                 </div>
-                <div className="card absolute lg:relative backdrop-blur-md w-full max-w-sm shrink-0 shadow-2xl">
+                <div className="card absolute right-0 left-5 lg:relative backdrop-blur-md w-[90%] max-w-sm shrink-0 shadow-2xl">
                     <div className="card-body">
                         <h1 className="text-2xl lg:text-3xl text-center font-semibold">Sign in</h1>
                         <form onSubmit={handleSignIn} className="fieldset">

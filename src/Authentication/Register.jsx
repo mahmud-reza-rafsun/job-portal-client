@@ -39,12 +39,12 @@ const Register = () => {
             })
     }
     return (
-        <div className="hero bg-base-200 min-h-[80vh]">
+        <div className="hero bg-base-200 min-h-[40vh] lg:min-h-[80vh]">
             <div className="hero-content flex-col gap-12 lg:gap-52 lg:flex-row-reverse">
-                <div className="text-center lg:text-left w-[350px] lg:w-[450px]">
+                <div className="text-center lg:text-left w-[310px] lg:w-[450px]">
                     <Lottie animationData={RegisterAnimation} />
                 </div>
-                <div className="card absolute lg:relative backdrop-blur-md w-full max-w-sm shrink-0 shadow-2xl">
+                <div className="card absolute right-0 left-5 lg:relative backdrop-blur-md w-[90%] max-w-sm shrink-0 shadow-2xl">
                     <div className="card-body">
                         <h1 className="text-2xl lg:text-3xl text-center font-semibold">Register</h1>
                         <form onSubmit={handleRegister} className="fieldset">

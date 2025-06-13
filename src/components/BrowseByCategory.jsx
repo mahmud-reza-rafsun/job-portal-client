@@ -5,7 +5,7 @@ const BrowseByCategory = () => {
                 <h2 className="font-semibold text-2xl lg:text-3xl">Browse by category</h2>
                 <p className="pt-3 text-gray-500">Find the job that’s perfect for you. about 800+ new jobs everyday</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 <div className="border border-gray-200 p-3 rounded-xl flex gap-5 hover:shadow-lg shadow-indigo-200 duration-300">
                     <div>
                         <img src="https://jobbox-html-frontend.vercel.app/assets/imgs/page/homepage1/content.svg" alt="" />
