@@ -26,16 +26,16 @@ const Navbar = () => {
     return (
         <div className="shadow-sm sticky top-0 z-50 backdrop-blur-md px-3 lg:px-0">
             <div className="navbar max-w-6xl mx-auto">
-                <div className="navbar-start flex-1/4">
+                <div className="navbar-start lg:flex-1/3 flex-1/4">
                     <Link className="font-bold cursor-pointer text-xl lg:text-2xl">Job Portal</Link>
                 </div>
-                <div className="navbar-center hidden lg:flex">
+                <div className="navbar-center hidden lg:flex-1/4 lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end flex-3/5 gap-2 lg:gap-4">
-                    <div className="flex items-center gap-2 lg:gap-4">
+                <div className="navbar-end lg:flex-1/3 flex-3/5 gap-4">
+                    <div className="flex items-center gap-4">
                         {
                             users ?
                                 <>
@@ -47,17 +47,6 @@ const Navbar = () => {
                                                     src={users ? users?.photoURL : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
                                             </div>
                                         </div>
-                                        <ul
-                                            tabIndex={0}
-                                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                                            <li>
-                                                <a className="justify-between">
-                                                    Profile
-                                                    <span className="badge">New</span>
-                                                </a>
-                                            </li>
-                                            <li><a>Settings</a></li>
-                                        </ul>
                                     </div>
                                     <button onClick={handleSignOut} className="btn btn-error text-white">Log Out</button>
                                 </>
