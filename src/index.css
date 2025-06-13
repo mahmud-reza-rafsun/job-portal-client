@@ -2,6 +2,6 @@
 @plugin "daisyui";
 
 .active {
-    background-color: rgb(113, 120, 207);
+    background-color: #615FFF;
     color: #fff;
 }

@@ -70,7 +70,7 @@ const Navbar = () => {
                             :
                             <>
                                 <Link to="/register">Register</Link>
-                                <Link to="/sign-in"><button className="btn bg-[#7178CF] border-none text-white"> Sing In</button></Link>
+                                <Link to="/sign-in"><button className="btn bg-indigo-500 border-none text-white"> Sing In</button></Link>
                             </>
                     }
                 </div>
