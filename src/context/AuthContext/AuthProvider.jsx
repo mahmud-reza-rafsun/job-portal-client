@@ -23,23 +23,23 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
-    // createUserWithGoogle
+    // create user with google
     const createUserWithGoogle = () => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
-    // singInWithEmail
+    // sing in with email
     const signInWithEmail = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
-    // signOutUser
+    // sign out user
     const signOutUser = () => {
         setLoading(true);
         return signOut(auth);
     }
 
-    // userOvserver
+    // user ovserver
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUsers(currentUser);
@@ -51,12 +51,14 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
+    // auth functions
     const authInfo = {
         users,
         loading,
         createUserWithEmail,
         createUserWithGoogle,
-        signOutUser
+        signOutUser,
+        signInWithEmail
     }
     return (
         <AuthContext.Provider value={authInfo}>
