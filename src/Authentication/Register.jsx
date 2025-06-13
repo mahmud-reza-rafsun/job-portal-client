@@ -39,7 +39,7 @@ const Register = () => {
             })
     }
     return (
-        <div className="hero bg-base-200 min-h-[40vh] lg:min-h-[80vh]">
+        <div className="hero bg-base-200 min-h-[80vh]">
             <div className="hero-content flex-col gap-12 lg:gap-52 lg:flex-row-reverse">
                 <div className="text-center lg:text-left w-[310px] lg:w-[450px]">
                     <Lottie animationData={RegisterAnimation} />
