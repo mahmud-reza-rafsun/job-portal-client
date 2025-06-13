@@ -20,7 +20,7 @@ const Navbar = () => {
         <li><NavLink to="/about">About</NavLink></li>
     </>
     return (
-        <div className="bg-base-100 shadow-sm">
+        <div className="shadow-sm sticky top-0 z-50 backdrop-blur-md">
             <div className="navbar max-w-6xl mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -70,7 +70,7 @@ const Navbar = () => {
                             :
                             <>
                                 <Link to="/register">Register</Link>
-                                <Link to="/sign-in"><button className="btn bg-[#7178CF] text-white"> Sing In</button></Link>
+                                <Link to="/sign-in"><button className="btn bg-[#7178CF] border-none text-white"> Sing In</button></Link>
                             </>
                     }
                 </div>
