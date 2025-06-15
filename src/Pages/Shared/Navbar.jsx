@@ -21,7 +21,7 @@ const Navbar = () => {
     }
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/about">About</NavLink></li>
+        <li><NavLink to="/job-applications">Job Applications</NavLink></li>
     </>
     return (
         <div className="shadow-sm sticky top-0 z-50 backdrop-blur-md px-3 lg:px-0">
