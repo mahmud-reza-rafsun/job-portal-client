@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { IoBagAdd } from "react-icons/io5";
 
@@ -51,29 +51,33 @@ const JobDetails = () => {
                         }
                     </div>
                 </div>
-                <div>
-                    <h3 className="text-sm font-bold pt-4">Responsibilities</h3>
-                    <div className="flex flex-wrap gap-2 mt-4">
-                        {
-                            responsibilities?.map((skills, idx) => <span key={idx} className="px-3 py-1 bg-gray-100 text-sm text-gray-700 hover:text-indigo-500 duration-200 rounded-md">{skills}</span>)
-                        }
+                <div className="lg:flex lg:justify-between lg:items-center">
+                    <div>
+                        <h3 className="text-sm font-bold pt-4">Responsibilities</h3>
+                        <div className="flex flex-wrap gap-2 mt-4">
+                            {
+                                responsibilities?.map((skills, idx) => <span key={idx} className="px-3 py-1 bg-gray-100 text-sm text-gray-700 hover:text-indigo-500 duration-200 rounded-md">{skills}</span>)
+                            }
+                        </div>
+                    </div>
+                    <div>
+                        <h3 className="text-sm font-bold py-3">HR info</h3>
+                        <div className="p-3 border w-full md:w-fit lg:w-fit rounded-md border-indigo-200">
+                            <h3 className="text-sm font-semibold">{hr_name}</h3>
+                            <p className="text-sm text-gray-500">{hr_email}</p>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <h3 className="text-sm font-bold py-3">HR info</h3>
-                    <div className="p-3 border w-full md:w-fit lg:w-fit rounded-md border-indigo-200">
-                        <h3 className="text-sm font-semibold">{hr_name}</h3>
-                        <p className="text-sm text-gray-500">{hr_email}</p>
-                    </div>
-                </div>
-
                 <div className="flex items-center justify-between mt-5 lg:mt-3">
                     <span className="text-blue-600 text-sm font-semibold">৳ {salaryRange.min} - {salaryRange.max} <span className="text-sm font-medium">/- month</span> </span>
-                    <button className="btn lg:btn-lg btn-sm bg-indigo-100 text-indigo-60 hover:bg-indigo-500 text-indigo-500 hover:text-white duration-500 px-4 py-2 rounded-md lg:text-sm">Apply Now</button>
+                    <Link to={`/job-apply/${_id}`}>
+                        <button className="btn lg:btn-lg btn-sm bg-indigo-100 text-indigo-60 hover:bg-indigo-500 text-indigo-500 hover:text-white duration-500 px-4 py-2 rounded-md lg:text-sm">Apply Now</button>
+                    </Link>
                 </div>
             </div>
         </div>
     );
 };
+
 
 export default JobDetails;

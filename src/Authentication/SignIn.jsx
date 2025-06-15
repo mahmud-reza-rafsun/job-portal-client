@@ -5,12 +5,16 @@ import { useContext, useState } from "react";
 import AuthContext from "../context/AuthContext/AuthContext";
 import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "motion/react"
 
 const SignIn = () => {
     const { signInWithEmail, createUserWithGoogle } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(null);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state || "/";
+
     const handleSignIn = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -23,6 +27,7 @@ const SignIn = () => {
             .then(result => {
                 toast.success('Register Successfull');
                 console.log(result);
+                navigate(from);
             })
             .catch(error => {
                 toast.error(error.message);
@@ -61,7 +66,7 @@ const SignIn = () => {
                             <motion.button
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
-                                onHoverStart={() => console.log('hover started!')}
+                                onHoverStart={() => console.log()}
                                 className="btn bg-indigo-500 border-none text-white mt-2">Sign in</motion.button>
                         </form>
                         <button onClick={handleGoogleSingIn} className="btn bg-white text-black border-[#e5e5e5]">

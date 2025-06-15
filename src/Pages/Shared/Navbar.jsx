@@ -1,19 +1,16 @@
 /* eslint-disable no-unused-vars */
 import { useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import toast from "react-hot-toast";
 import { motion } from "motion/react"
 
 const Navbar = () => {
     const { users, signOutUser } = useContext(AuthContext);
-    const navigate = useNavigate();
     const handleSignOut = () => {
         signOutUser()
             .then(result => {
                 toast.success('Sign Out Successfull');
-                console.log(result);
-                navigate('/sign-in')
             })
             .catch(error => {
                 toast.error(error.message);
@@ -21,7 +18,7 @@ const Navbar = () => {
     }
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/job-applications">Job Applications</NavLink></li>
+        <li><NavLink to="/my-applications">My Applications</NavLink></li>
     </>
     return (
         <div className="shadow-sm sticky top-0 z-50 backdrop-blur-md px-3 lg:px-0">
@@ -39,15 +36,6 @@ const Navbar = () => {
                         {
                             users ?
                                 <>
-                                    <div className="dropdown dropdown-end">
-                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                            <div className="w-10 rounded-full">
-                                                <img
-                                                    alt={users.name}
-                                                    src={users ? users?.photoURL : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
-                                            </div>
-                                        </div>
-                                    </div>
                                     <button onClick={handleSignOut} className="btn btn-error text-white">Log Out</button>
                                 </>
                                 :
@@ -56,7 +44,8 @@ const Navbar = () => {
                                     <Link to="/sign-in"><motion.button
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}
-                                        onHoverStart={() => console.log('hover started!')}
+
+
                                         className="btn bg-indigo-500 border-none text-white"> Sing In</motion.button></Link>
                                 </>
                         }

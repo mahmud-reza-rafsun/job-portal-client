@@ -60,7 +60,6 @@ const Register = () => {
                             <motion.button
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
-                                onHoverStart={() => console.log('hover started!')}
                                 className="btn bg-indigo-500 border-none text-white mt-2">Register</motion.button>
                         </form>
                         <button onClick={handleGoogleRegister} className="btn bg-white text-black border-[#e5e5e5]">
