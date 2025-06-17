@@ -18,20 +18,27 @@ const Navbar = () => {
     }
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/my-applications">My Applications</NavLink></li>
+        {
+            users &&
+            <>
+                <li><NavLink to="/my-applications">My Applications</NavLink></li>
+                <li><NavLink to="/add-job">Add A Job</NavLink></li>
+                <li><NavLink to="/my-posted-job">My Posted Job</NavLink></li>
+            </>
+        }
     </>
     return (
         <div className="shadow-sm sticky top-0 z-50 backdrop-blur-md px-3 lg:px-0">
             <div className="navbar max-w-6xl mx-auto">
-                <div className="navbar-start lg:flex-1/3 flex-1/4">
+                <div className="navbar-start w-1/3 lg:w-1/2">
                     <Link className="font-bold cursor-pointer text-xl lg:text-2xl">Job Portal</Link>
                 </div>
-                <div className="navbar-center hidden lg:flex-1/4 lg:flex">
+                <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end lg:flex-1/3 flex-3/5 gap-4">
+                <div className="navbar-end w-[70%] lg:w-[50%] gap-4">
                     <div className="flex items-center gap-4">
                         {
                             users ?

@@ -1,4 +1,4 @@
-import { IoBagAdd } from "react-icons/io5";
+import { IoBagAdd, IoShieldCheckmarkOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 /* eslint-disable no-unused-vars */
@@ -25,13 +25,9 @@ const HotJobCard = ({ job }) => {
                         <IoBagAdd />
                         {jobType}
                     </span>
-                    <span className="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        5 minutes ago
+                    <span className="flex items-center justify-center gap-1">
+                        <IoShieldCheckmarkOutline />
+                        {status}
                     </span>
                 </div>
                 <p className="text-sm text-gray-600 mt-4">
@@ -45,7 +41,7 @@ const HotJobCard = ({ job }) => {
                 </div>
 
                 <div className="flex items-center justify-between mt-6">
-                    <span className="text-blue-600 text-sm font-semibold">৳ {salaryRange.min} - {salaryRange.max}</span>
+                    <span className="text-blue-600 text-sm font-semibold">৳ {salaryRange?.min} - {salaryRange?.max}</span>
                     <Link to={`/jobs/${_id}`}>
                         <button className="btn bg-indigo-100 text-indigo-60 hover:bg-indigo-500 hover:text-white duration-500 px-4 py-2 rounded-md text-sm">See Details</button>
                     </Link>

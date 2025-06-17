@@ -31,7 +31,7 @@ const JobApply = () => {
             .then(data => {
                 if (data.insertedId) {
                     Swal.fire({
-                        title: "Drag me!",
+                        title: "Application Successfull",
                         icon: "success",
                         draggable: true
                     });

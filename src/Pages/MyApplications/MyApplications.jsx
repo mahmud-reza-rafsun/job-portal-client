@@ -54,38 +54,51 @@ const MyApplications = () => {
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {/* row 1 */}
-                        {
-                            jobs.map((job) => <tr key={job?._id}>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle h-12 w-12">
-                                                <img
-                                                    src={job?.company_logo}
-                                                    alt={job?.title} />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">{job?.title}</div>
-                                            <div className="text-sm opacity-50">{job?.title}</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    {job.location}
-                                    <br />
-                                    <span className="badge badge-ghost badge-sm">{job?.jobType}</span>
-                                </td>
-                                <th>
-                                    <button onClick={() => handleDelete(job?._id)} className="btn bg-error border-0 text-white rounded-md btn-xs">
-                                        <GoTrash />
-                                    </button>
-                                </th>
-                            </tr>)
-                        }
-                    </tbody>
+                    {/* row 1 */}
+                    {
+                        <tbody>
+                            {
+                                jobs && jobs.length > 0 ? (
+                                    jobs.map((job) => (
+                                        <tr key={job?._id}>
+                                            <td>
+                                                <div className="flex items-center gap-3">
+                                                    <div className="avatar">
+                                                        <div className="mask mask-squircle h-12 w-12">
+                                                            <img src={job?.company_logo} alt={job?.title} />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div className="font-bold">{job?.title}</div>
+                                                        <div className="text-sm opacity-50">{job?.title}</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {job?.location}
+                                                <br />
+                                                <span className="badge badge-ghost badge-sm">{job?.jobType}</span>
+                                            </td>
+                                            <th>
+                                                <button
+                                                    onClick={() => handleDelete(job?._id)}
+                                                    className="btn bg-error border-0 text-white rounded-md btn-xs"
+                                                >
+                                                    <GoTrash />
+                                                </button>
+                                            </th>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <tr>
+                                        <td colSpan="3" className="text-left bg-indigo-100 rounded-lg text-[16px] py-4">
+                                            No Applications Found.
+                                        </td>
+                                    </tr>
+                                )
+                            }
+                        </tbody>
+                    }
                 </table>
             </div>
         </div>

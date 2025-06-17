@@ -49,7 +49,7 @@ const SignIn = () => {
                 <div className="text-center lg:text-left w-[300px] lg:w-[525px]">
                     <Lottie animationData={SignInAnimation} />
                 </div>
-                <div className="card absolute right-0 left-5 lg:relative backdrop-blur-md w-[90%] max-w-sm shrink-0 shadow-2xl">
+                <div className="card absolute right-0 left-5 lg:left-0 lg:relative backdrop-blur-md w-[90%] max-w-sm shrink-0 shadow-2xl">
                     <div className="card-body">
                         <h1 className="text-2xl lg:text-3xl text-center font-semibold">Sign in</h1>
                         <form onSubmit={handleSignIn} className="fieldset">

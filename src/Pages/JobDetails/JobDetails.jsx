@@ -1,18 +1,20 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import { IoBagAdd } from "react-icons/io5";
+import { IoBagAdd, IoTimeOutline } from "react-icons/io5";
 
 
 const JobDetails = () => {
     const jobsData = useLoaderData();
-    const { _id, title, location, jobType, category, applicationDeadline, salaryRange, description, company, requirements, responsibilities, status, hr_email, hr_name, company_logo } = jobsData || [];
+    const { _id, title, location, jobType, applicationDeadline, salaryRange, description, company, requirements, responsibilities, status, hr_email, hr_name, company_logo } = jobsData || [];
     return (
         <div>
             <div className="p-5 border border-indigo-300 rounded-md hover:shadow-lg hover:shadow-indigo-200 duration-500">
                 <div className="flex items-center gap-3">
-                    <img src={company_logo} alt={title} className="w-10 h-10 rounded-full" />
+                    <div className="border p-2 rounded-3xl border-indigo-500">
+                        <img src={company_logo} alt={title} className="w-10 h-10 rounded-full" />
+                    </div>
                     <div>
-                        <h2 className="font-semibold text-gray-800 tooltip tooltip-open tooltip-right" data-tip={category}>{company}</h2>
+                        <h2 className="font-semibold text-gray-800">{company}</h2>
                         <p className="text-sm text-gray-500">{location}</p>
                     </div>
                 </div>
@@ -27,11 +29,7 @@ const JobDetails = () => {
                         {jobType}
                     </span>
                     <span className="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
+                        <IoTimeOutline />
                         5 minutes ago
                     </span>
                     <span className="flex items-center gap-1">
@@ -69,7 +67,7 @@ const JobDetails = () => {
                     </div>
                 </div>
                 <div className="flex items-center justify-between mt-5 lg:mt-3">
-                    <span className="text-blue-600 text-sm font-semibold">৳ {salaryRange.min} - {salaryRange.max} <span className="text-sm font-medium">/- month</span> </span>
+                    <span className="text-blue-600 text-sm lg:text-base font-semibold">৳ {salaryRange?.min} - {salaryRange?.max} <span className="text-sm font-medium">/- month</span> </span>
                     <Link to={`/job-apply/${_id}`}>
                         <button className="btn lg:btn-lg btn-sm bg-indigo-100 text-indigo-60 hover:bg-indigo-500 text-indigo-500 hover:text-white duration-500 px-4 py-2 rounded-md lg:text-sm">Apply Now</button>
                     </Link>
