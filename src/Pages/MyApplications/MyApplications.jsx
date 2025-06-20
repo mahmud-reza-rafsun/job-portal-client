@@ -2,14 +2,21 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { GoTrash } from "react-icons/go";
 import Swal from "sweetalert2";
+import axios from 'axios';
+
 
 const MyApplications = () => {
     const { users } = useAuth();
     const [jobs, setJob] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/job-application?email=${users.email}`)
-            .then(res => res.json())
-            .then(data => setJob(data));
+        // fetch(`http://localhost:5000/job-application?email=${users.email}`)
+        //     .then(res => res.json())
+        //     .then(data => setJob(data));
+
+        axios.get(`http://localhost:5000/job-application?email=${users.email}`,{withCredentials: true})
+        .then(res => setJob(res?.data));
+
+
     }, [users.email])
     const handleDelete = (_id) => {
         Swal.fire({
