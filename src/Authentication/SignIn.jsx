@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "motion/react"
-import axios from 'axios';
 
 const SignIn = () => {
     const { signInWithEmail, createUserWithGoogle } = useContext(AuthContext);
@@ -28,9 +27,6 @@ const SignIn = () => {
             .then(result => {
                 toast.success('Register Successfull');
                 console.log(result.user.email);
-                const user = {email: result.user.email};
-                axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
-                .then(res => console.log(res.data));
                 // navigate(from);
             })
             .catch(error => {
