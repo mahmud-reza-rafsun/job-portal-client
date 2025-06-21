@@ -15,7 +15,7 @@ const HotJobs = () => {
                 <h2 className="font-semibold text-2xl lg:text-3xl">Jobs of the day</h2>
                 <p className="pt-3 text-gray-500">Search and connect with the right candidates faster.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-14">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-14">
                 <div className="border border-gray-200 p-3 rounded-xl flex items-center gap-3 hover:border-indigo-500 duration-300">
                     <div>
                         <img src="https://jobbox-html-frontend.vercel.app/assets/imgs/page/homepage1/management.svg" className="w-7" alt="" />

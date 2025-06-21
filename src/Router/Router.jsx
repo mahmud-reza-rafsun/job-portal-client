@@ -10,6 +10,7 @@ import MyApplications from "../Pages/MyApplications/MyApplications";
 import AddJob from "../Pages/AddJob/AddJob";
 import MyPostedJobs from "../Pages/MyPostedJobs/MyPostedJobs";
 import ViewApplication from "../Pages/ViewApplication/ViewApplication";
+import ForgotPassword from "../Authentication/ForgotPassword";
 
 const router = createBrowserRouter([
     {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
                     <ViewApplication />,
                 </PrivetRoute>,
                 loader: ({ params }) => fetch(`https://job-portal-server-de.vercel.app/job-applications/jobs/${params.job_id}`)
+            },
+            {
+                path: '/forgot-password',
+                element: <PrivetRoute><ForgotPassword/></PrivetRoute>
             }
         ]
     }

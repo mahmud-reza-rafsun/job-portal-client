@@ -35,7 +35,7 @@ const SignIn = () => {
     }
     const handleGoogleSingIn = () => {
         createUserWithGoogle()
-            .then(result => {
+            .then(() => {
                 toast.success('Google Sign in Successfull');
             })
             .catch(error => {
@@ -61,7 +61,7 @@ const SignIn = () => {
                                     {showPassword ? <FaEye /> : <FaEyeSlash />}
                                 </div>
                             </div>
-                            <div><a className="link link-hover">Forgot password?</a></div>
+                            <div><Link to="/forgot-password" className="link link-hover">Forgot password?</Link></div>
                             <motion.button
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
