@@ -10,7 +10,7 @@ const MyPostedJobs = () => {
     const [jobs, setJobs] = useState([]);
     const { users } = useAuth();
     useEffect(() => {
-        fetch(`http://localhost:5000/jobs?email=${users?.email}`)
+        fetch(`https://job-portal-server-de.vercel.app/jobs?email=${users?.email}`)
             .then(res => res.json())
             .then(data => {
                 setJobs(data)
@@ -27,7 +27,7 @@ const MyPostedJobs = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/jobs/${_id}`, {
+                fetch(`https://job-portal-server-de.vercel.app/jobs/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

@@ -23,7 +23,7 @@ const AddJob = () => {
             confirmButtonText: "Yes, Add it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch('http://localhost:5000/jobs', {
+                fetch('https://job-portal-server-de.vercel.app/jobs', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

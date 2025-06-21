@@ -5,7 +5,7 @@ import useAuth from "./useAuth";
 import toast from "react-hot-toast";
 
 const axiosInstance = axios.create({
-    baseURL:'http://localhost:5000',
+    baseURL:'https://job-portal-server-de.vercel.app',
     withCredentials: true,
 })
 

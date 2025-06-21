@@ -32,7 +32,7 @@ const router = createBrowserRouter([
             {
                 path: '/jobs/:id',
                 element: <PrivetRoute><JobDetails /></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/jobs/${params.id}`)
+                loader: ({ params }) => fetch(`https://job-portal-server-de.vercel.app/jobs/${params.id}`)
             },
             {
                 path: '/job-apply/:id',
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
                 element: <PrivetRoute>
                     <ViewApplication />,
                 </PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/job-applications/jobs/${params.job_id}`)
+                loader: ({ params }) => fetch(`https://job-portal-server-de.vercel.app/job-applications/jobs/${params.job_id}`)
             }
         ]
     }
