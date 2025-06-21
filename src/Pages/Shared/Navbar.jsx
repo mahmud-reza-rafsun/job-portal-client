@@ -53,7 +53,7 @@ const Navbar = () => {
                                         whileTap={{ scale: 0.95 }}
 
 
-                                        className="btn bg-indigo-500 border-none text-white"> Sing In</motion.button></Link>
+                                        className="btn bg-indigo-500 border-none text-white"> Sign In</motion.button></Link>
                                 </>
                         }
                     </div>
